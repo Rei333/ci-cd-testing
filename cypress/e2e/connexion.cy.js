@@ -1,7 +1,7 @@
 describe("Inscription au site", () => {
   it("Créer un compte", () => {
     // Arrange (préparation du terrain de test)
-    cy.visit("https://localhost/ci-cd-testing/user/register");
+    cy.visit("http://127.0.0.1:8000/user/register");
     const message = "Le compte : test@test.com a été ajouté en BDD";
 
     // Act (actions à réaliser)
@@ -17,7 +17,7 @@ describe("Inscription au site", () => {
   }),
 
   it("Créer un compte (dupliqué)", () => {
-    cy.visit("https://localhost/ci-cd-testing/user/register");
+    cy.visit("http://127.0.0.1:8000/user/register");
     const message = "Le compte existe déja";
 
     cy.get("[name='firstname']").type("Prénom");
@@ -33,7 +33,7 @@ describe("Inscription au site", () => {
 
 describe("Connexion au site", () => {
   it("Connexion échouée", () => {
-    cy.visit("https://localhost/ci-cd-testing/user/connexion");
+    cy.visit("http://127.0.0.1:8000/user/connexion");
     const message = "Les informations de connexion ne sont pas correctes";
 
     cy.get("[name='email']").type("test@test.com");
@@ -45,7 +45,7 @@ describe("Connexion au site", () => {
   }),
 
   it("Connexion réussie", () => {
-    cy.visit("https://localhost/ci-cd-testing/user/connexion");
+    cy.visit("http://127.0.0.1:8000/user/connexion");
 
     cy.get("[name='email']").type("test@test.com");
     cy.get("[name='password']").type("testest");
