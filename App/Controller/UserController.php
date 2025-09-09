@@ -68,15 +68,15 @@ class UserController
                     $this->userRepository->saveUser($user);
                     //Message et redirection
                     $message = "Le compte : " . $user->getEmail() . " a été ajouté en BDD";
-                    header("Refresh:2; url=" . $base ."/user/register");
+                    header("Refresh:5; url=" . $base ."/user/register");
                 } else {
 
                     $message = "Le compte existe déja";
-                    header("Refresh:2; url=" . $base . "/user/register");
+                    header("Refresh:5; url=" . $base . "/user/register");
                 }
             } else {
                 $message = "Veuillez remplir tous les champs";
-                header("Refresh:2; url=" . $base . "/user/register");
+                header("Refresh:5; url=" . $base . "/user/register");
             }
         }
 
@@ -116,15 +116,15 @@ class UserController
                         header('Location: ' . BASE_URL . '');
                     } else {
                         $message = "Les informations de connexion ne sont pas correctes";
-                        header("Refresh:2; url=" . $base . "/user/connexion");
+                        header("Refresh:5; url=" . $base . "/user/connexion");
                     }
                 } else {
                     $message = "Les informations de connexion ne sont pas correctes";
-                    header("Refresh:2; url=" . $base . "/user/connexion");
+                    header("Refresh:5; url=" . $base . "/user/connexion");
                 }
             } else {
                 $message = "Veuillez remplir les champs";
-               header("Refresh:2; url=" . $base . "/user/connexion");
+               header("Refresh:5; url=" . $base . "/user/connexion");
             }
         }
         include_once "App/View/viewConnexion.php";
